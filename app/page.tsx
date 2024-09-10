@@ -20,7 +20,7 @@ export default function Home() {
         </div>
         <div className="p-4 md:p-8 space-y-4">
           <h1 className={title({ color: "violet" })}>Yamini Coen</h1>
-          <h2 className={subtitle({ color: "violet" })}>
+          <h2 className={subtitle()}>
             Communications, Public Relations and Digital Marketing
           </h2>
           <p className="text-base">
