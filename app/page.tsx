@@ -1,4 +1,4 @@
-import { getMappedContentfulData } from "./services/contentful";
+import { getMappedContentfulData } from "../services/contentful";
 
 import { Navbar, getNavBarData } from "@/components/Navbar";
 import { PageComponent } from "@/components/Page";
