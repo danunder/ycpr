@@ -26,7 +26,7 @@ export default async function Page({ params }: { params: PageProps }) {
   const data = await getMappedContentfulData();
 
   const navBarData = getNavBarData(data.pages);
-  const pageData = data.pages.find((p: any) => p.slug === page[0]);
+  const pageData = data?.pages.find((p: any) => p.slug === page[0]);
   const { title: pageTitle, heading, subHeading, bodyText } = pageData;
 
   return (
