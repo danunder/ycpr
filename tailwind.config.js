@@ -21,7 +21,12 @@ module.exports = {
         rose: "#ff57bb",
         sage: "#b5ba72",
         celadon: "#b4edd2",
-        persianPink: "#F890CE"
+        persianPink: "#F890CE",
+        gradient1: "#BBD0FF",
+        gradient2: "#B8C0FF",
+        gradient3: "#C8B6FF",
+        gradient4: "#E7C6FF",
+        gradient5: "#FFD6FF",
       },
     },
   },

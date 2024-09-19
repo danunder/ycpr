@@ -19,19 +19,6 @@ export async function generateStaticParams() {
   }));
 }
 
-async function getPageData(page) {
-  const data = await getMappedContentfulData();
-  const pageData = data.pages.find((p: any) => p.slug === page[0]);
-  const { title: pageTitle, heading, subHeading, bodyText } = pageData;
-
-  return {
-    pageTitle,
-    heading,
-    subHeading,
-    bodyText
-  };
-} 
-
 export default async function Page({ params }: { params: PageProps }) {
   const { page } = params;
   console.log('*** params, ', params);
@@ -39,9 +26,8 @@ export default async function Page({ params }: { params: PageProps }) {
   const data = await getMappedContentfulData();
 
   const navBarData = getNavBarData(data.pages);
-
-  // const pageData = data.pages.find((p: any) => p.slug === page[0]);
-  const { pageTitle, heading, subHeading, bodyText } = await getPageData(page);
+  const pageData = data.pages.find((p: any) => p.slug === page[0]);
+  const { title: pageTitle, heading, subHeading, bodyText } = pageData;
 
   return (
     <div className="flex flex-col sm:flex-row p-4 max-w-5xl">
