@@ -29,7 +29,7 @@ export const getMappedContentfulData = async () => {
         return _resolveFieldsAndLinks(linkedEntry);
       }
       if (linkType === "Asset") {
-        const linkedAsset = assets.find((asset) => asset.sys.id === id);
+        const linkedAsset = assets?.find((asset) => asset.sys.id === id);
 
         return _resolveFieldsAndLinks(linkedAsset);
       }
@@ -45,7 +45,7 @@ export const getMappedContentfulData = async () => {
 
   const resolved = _resolveFieldsAndLinks(entries);
   // return only the main page tree
-  const pageData = resolved.find((item: any) => item.page === "ycpr");
+  const pageData = resolved?.find((item: any) => item.page === "ycpr");
 
   return pageData;
 };
