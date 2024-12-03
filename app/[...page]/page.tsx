@@ -26,8 +26,9 @@ export default async function Page({ params }: { params: PageProps }) {
   const data = await getMappedContentfulData();
 
   const navBarData = getNavBarData(data.pages);
-  const pageData = data?.pages.find((p: any) => p.slug === page[0]);
-  const { title: pageTitle, heading, subHeading, bodyText } = pageData;
+  const pageData = data?.pages?.find((p: any) => p.slug === page[0]) ?? {};
+  const { title: pageTitle, heading, subHeading, bodyText, children } = pageData;
+  console.log('*** pageData, ', JSON.stringify(pageData, null, 2));
 
   return (
     <div className="flex flex-col sm:flex-row p-4 max-w-5xl">
@@ -37,6 +38,7 @@ export default async function Page({ params }: { params: PageProps }) {
         heading={heading}
         pageTitle={pageTitle}
         subHeading={subHeading}
+        subcomponents={children}
       />
     </div>
   );

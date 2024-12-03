@@ -1,3 +1,5 @@
+'use client'
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
@@ -7,7 +9,34 @@ import github from "@/public/github.png";
 import linkedin from "@/public/linkedin.png";
 import { title, subtitle } from "@/components/primitives";
 
-export const PageComponent = ({ pageTitle, heading, subHeading, bodyText }) => {
+export const PageComponent = ({
+  pageTitle,
+  heading,
+  subHeading,
+  bodyText,
+  subcomponents = [],
+}) => {
+  
+  const components = [
+    {
+      heading,
+      subHeading,
+      bodyText,
+    },
+    ...subcomponents,
+  ];
+
+  const [ active, setActive ] = useState(0);
+
+  useEffect(() => {
+    setActive(
+      components.indexOf(
+        components?.find((component) => component.heading != null)
+      ),
+    )
+  }, []);
+  
+
   return (
     <section className="">
       <div className="window m-3 sm:m-10 md:m-15 text-left">
@@ -30,22 +59,26 @@ export const PageComponent = ({ pageTitle, heading, subHeading, bodyText }) => {
         </div>
 
         <div className="window-body space-y-3 m-3 py-2">
-          <h1 className={title({ color: "violet" })}>{heading}</h1>
-          <h2 className={subtitle()}>{subHeading}</h2>
+          <h1 className={title({ color: "violet" })}>
+            {components[active]?.heading}
+          </h1>
+          <h2 className={subtitle()}>{components[active]?.subHeading}</h2>
           <ul className="tree-view">
-            <p className="p-1 text-base md:text-xl lg:text-2xl">
-              <div>{documentToReactComponents(bodyText)}</div>
-            </p>
+            <div>{documentToReactComponents(components[active]?.bodyText)}</div>
           </ul>
           <div className="space-x-4 flex flex-row items-center justify-center my-2">
             <button disabled className="px-2 py-1 text-sm sm:text-base">
               Back
             </button>
-            <Link href="/about">
-              <button className="px-2 py-1 text-sm sm:text-base">
-                Experience
+            
+              <button 
+              className="px-2 py-1 text-sm sm:text-base"
+              onClick={() => setActive(active + 1)}
+              disabled={active === components.length - 1}
+              >
+                {components[active + 1]?.heading ?? "Next"}
               </button>
-            </Link>
+            
           </div>
         </div>
       </div>
