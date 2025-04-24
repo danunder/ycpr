@@ -64,22 +64,52 @@ const Home: FC = memo(() => {
 
   return (
     <Page description={description} title={title}>
-      <section className="h-[calc(100%-3.5rem)]" id="welcome" ref={el => el && sectionsRef.current.push(el)}>
+      <section
+        className="h-[calc(100%-3.5rem)]"
+        id="welcome"
+        ref={el => {
+          if (el) sectionsRef.current.push(el);
+        }}
+      >
         <Hero />
       </section>
-      <section className="h-[calc(100%-3.5rem)]" id="about" ref={el => el && sectionsRef.current.push(el)}>
+      <section
+        className="h-[calc(100%-3.5rem)]"
+        id="about"
+        ref={el => {
+          if (el) sectionsRef.current.push(el);
+        }}
+      >
         <About />
       </section>
-      <section className="h-[calc(100%-3.5rem)]" id="resume" ref={el => el && sectionsRef.current.push(el)}>
+      <section
+        className="h-[calc(100%-3.5rem)]"
+        id="resume"
+        ref={el => {
+          if (el) sectionsRef.current.push(el);
+        }}
+      >
         <Resume />
       </section>
-      {/* <section className="h-[calc(100%-3.5rem)]" id="portfolio" ref={(el) => el && sectionsRef.current.push(el)}>
+      {/* <section className="h-[calc(100%-3.5rem)]" id="portfolio" ref={(el) => { if (el) sectionsRef.current.push(el); }}>
       <Portfolio />
       </section> */}
-      <section className="h-[calc(100%-3.5rem)]" id="testimonials" ref={el => el && sectionsRef.current.push(el)}>
+      <section
+        className="h-[calc(100%-3.5rem)]"
+        id="testimonials"
+        ref={el => {
+          if (el) sectionsRef.current.push(el);
+        }}
+      >
         <Testimonials />
       </section>
-      <section className="h-[calc(100%-3.5rem)]" id="contact" ref={el => el && sectionsRef.current.push(el)}>
+      <section
+        className="h-[calc(100%-3.5rem)]"
+        id="contact"
+        ref={el => {
+          if (el) sectionsRef.current.push(el);
+        }}
+      >
         <Contact />
       </section>
       <StickyFooter />

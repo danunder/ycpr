@@ -15,6 +15,7 @@ const nextConfig = {
 
     return config;
   },
+  basePath: '/ycpr',
   compress: true,
   generateEtags: true,
   pageExtensions: ['tsx', 'mdx', 'ts'],
