@@ -11,7 +11,7 @@ import {
 // import InstagramIcon from '../components/Icon/InstagramIcon';
 import LinkedInIcon from '../components/Icon/LinkedInIcon';
 // import TwitterIcon from '../components/Icon/TwitterIcon';
-// import cloudsImage from '../images/clouds.png';
+import cloudsImage from '../images/clouds.png';
 import doubleDown from '../images/doubleDown.webp';
 import hillsImage from '../images/hills.png';
 import camera from '../images/icons/camera.png';
@@ -35,7 +35,6 @@ import Siggis from '../images/portfolio/Siggis.png';
 import TDM from '../images/portfolio/TDM.png';
 import THA from '../images/portfolio/THA.png';
 import profilepic from '../images/profilepic.jpg';
-import testimonialImage from '../images/testimonial.webp';
 import timeline from '../images/timeline.png';
 import {
   About,
@@ -302,7 +301,7 @@ export const resumeData: Resume = {
  * Testimonial section
  */
 export const testimonial: TestimonialSection = {
-  imageSrc: testimonialImage,
+  imageSrc: cloudsImage,
   testimonials: [
     {
       name: 'Christina Antoniou, Pfizer Canada (2020)',
