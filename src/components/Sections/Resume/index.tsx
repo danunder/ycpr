@@ -13,7 +13,7 @@ const Resume: FC = memo(() => {
     <Section
       className="bg-background p-0 bg-gradient-to-br from-green via-10% via-gradient1 via-30% via-gradient2 via-50% via-gradient3 via-70% via-gradient4 to-90% to-gradient5"
       sectionId={SectionId.Resume}>
-      <div className="relative flex h-screen items-stretch justify-center">
+      <div className="relative flex min-h-screen sm:h-screen items-stretch justify-center">
         <div className="window z-10 h-4/5 overflow-scroll w-[95%] max-w-screen-md sm:px-0">
           <div className="title-bar">
             <div className="title-bar-text p-1 lg:p-2 text-base sm:text-2xl">Resume</div>
