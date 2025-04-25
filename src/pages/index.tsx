@@ -69,8 +69,7 @@ const Home: FC = memo(() => {
         id="welcome"
         ref={el => {
           if (el) sectionsRef.current.push(el);
-        }}
-      >
+        }}>
         <Hero />
       </section>
       <section
@@ -78,8 +77,7 @@ const Home: FC = memo(() => {
         id="about"
         ref={el => {
           if (el) sectionsRef.current.push(el);
-        }}
-      >
+        }}>
         <About />
       </section>
       <section
@@ -87,8 +85,7 @@ const Home: FC = memo(() => {
         id="resume"
         ref={el => {
           if (el) sectionsRef.current.push(el);
-        }}
-      >
+        }}>
         <Resume />
       </section>
       {/* <section className="h-[calc(100%-3.5rem)]" id="portfolio" ref={(el) => { if (el) sectionsRef.current.push(el); }}>
@@ -99,8 +96,7 @@ const Home: FC = memo(() => {
         id="testimonials"
         ref={el => {
           if (el) sectionsRef.current.push(el);
-        }}
-      >
+        }}>
         <Testimonials />
       </section>
       <section
@@ -108,8 +104,7 @@ const Home: FC = memo(() => {
         id="contact"
         ref={el => {
           if (el) sectionsRef.current.push(el);
-        }}
-      >
+        }}>
         <Contact />
       </section>
       <StickyFooter />

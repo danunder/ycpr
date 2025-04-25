@@ -1,6 +1,7 @@
-import {FC, memo, useState} from 'react';
+import Image from 'next/image';
+import {FC, memo, useMemo, useState} from 'react';
 
-import {education, SectionId, skills} from '../../../data/data';
+import {resumeData, SectionId} from '../../../data/data';
 import Section from '../../Layout/Section';
 import ResumeSection from './ResumeSection';
 import {SkillGroup} from './Skills';
@@ -8,7 +9,12 @@ import TimelineItem from './TimelineItem';
 
 const Resume: FC = memo(() => {
   const [activeTab, setActiveTab] = useState<'Education' | 'Work' | 'Skills'>('Work');
+  const {education, experience, skills, timelineImageSrc} = resumeData;
 
+  const resolveSrc = useMemo(() => {
+    if (!timelineImageSrc) return undefined;
+    return typeof timelineImageSrc === 'string' ? timelineImageSrc : timelineImageSrc.src;
+  }, [timelineImageSrc]);
   return (
     <Section
       className="bg-background p-0 bg-gradient-to-br from-green via-10% via-gradient1 via-30% via-gradient2 via-50% via-gradient3 via-70% via-gradient4 to-90% to-gradient5"
@@ -59,7 +65,34 @@ const Resume: FC = memo(() => {
                   className="window-body h-[85%] overflow-scroll"
                   id="work-panel"
                   role="tabpanel">
-                  <ResumeSection title="Work"></ResumeSection>
+                  <ResumeSection title="Work">
+                    <div className="flex flex-row p-6 gap-y-2">
+                      <div className="hidden sm:flex flex-col space-y-28">
+                        {experience.map(
+                          (item, index) =>
+                            index % 2 === 0 && <TimelineItem item={item} key={`${item.title}-${index}`} />,
+                        )}
+                      </div>
+                      <Image
+                        alt="work-image"
+                        className="relative mb-24 sm:mb-14 object-cover"
+                        height={400}
+                        src={resolveSrc || '/default-image-path.jpg'}
+                        width={56}
+                      />
+                      <div className="flex flex-col sm:hidden gap-y-4">
+                        {experience.map((item, index) => (
+                          <TimelineItem item={item} key={`${item.title}-${index}`} />
+                        ))}
+                      </div>
+                      <div className="hidden sm:flex flex-col mt-28 space-y-28">
+                        {experience.map(
+                          (item, index) =>
+                            index % 2 === 1 && <TimelineItem item={item} key={`${item.title}-${index}`} />,
+                        )}
+                      </div>
+                    </div>
+                  </ResumeSection>
                 </div>
               )}
               {activeTab === 'Skills' && (

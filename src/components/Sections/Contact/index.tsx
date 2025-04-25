@@ -1,4 +1,3 @@
-
 import {DevicePhoneMobileIcon, EnvelopeIcon, MapPinIcon} from '@heroicons/react/24/outline';
 import classNames from 'classnames';
 import {FC, memo} from 'react';
@@ -31,36 +30,35 @@ const Contact: FC = memo(() => {
             <h1 className="text-4xl font-bold text-black sm:text-8xl">{headerText}</h1>
             <h2 className="text-base font-bold text-black sm:text-4xl">{description}</h2>
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-          <div className="order-2 col-span-1 md:order-1 ">
-            <ContactForm />
-          </div>
-          <div className="order-1 col-span-1 flex flex-col gap-y-4 md:order-2">
-            <p className="prose leading-6 text-neutral-300">{description}</p>
-            <dl className="flex flex-col space-y-4 text-base text-neutral-500 sm:space-y-2">
-              {items.map(({type, text, href}) => {
-                const {Icon, srLabel} = ContactValueMap[type];
-                return (
-                  <div key={srLabel}>
-                    <dt className="sr-only">{srLabel}</dt>
-                    <dd className="flex items-center">
-                      <a
-                        className={classNames(
-                          '-m-2 flex rounded-md p-2 text-neutral-300 hover:text-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-500',
-                          {'hover:text-white': href},
-                        )}
-                        href={href}
-                        target="_blank">
-                        <Icon aria-hidden="true" className="h-4 w-4 flex-shrink-0 text-neutral-100 sm:h-5 sm:w-5" />
-                        <span className="ml-3 text-sm sm:text-base">{text}</span>
-                      </a>
-                    </dd>
-                  </div>
-                );
-              })}
-            </dl>
-          </div>
-        </div>
-            
+              <div className="order-2 col-span-1 md:order-1 ">
+                <ContactForm />
+              </div>
+              <div className="order-1 col-span-1 flex flex-col gap-y-4 md:order-2">
+                <p className="prose leading-6 text-neutral-300">{description}</p>
+                <dl className="flex flex-col space-y-4 text-base text-neutral-500 sm:space-y-2">
+                  {items.map(({type, text, href}) => {
+                    const {Icon, srLabel} = ContactValueMap[type];
+                    return (
+                      <div key={srLabel}>
+                        <dt className="sr-only">{srLabel}</dt>
+                        <dd className="flex items-center">
+                          <a
+                            className={classNames(
+                              '-m-2 flex rounded-md p-2 text-neutral-300 hover:text-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-500',
+                              {'hover:text-white': href},
+                            )}
+                            href={href}
+                            target="_blank">
+                            <Icon aria-hidden="true" className="h-4 w-4 flex-shrink-0 text-neutral-100 sm:h-5 sm:w-5" />
+                            <span className="ml-3 text-sm sm:text-base">{text}</span>
+                          </a>
+                        </dd>
+                      </div>
+                    );
+                  })}
+                </dl>
+              </div>
+            </div>
           </div>
         </div>
         {/* <div className="absolute inset-x-0 bottom-14 flex justify-center">

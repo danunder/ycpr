@@ -79,8 +79,8 @@ const Testimonials: FC = memo(() => {
         )}
         style={imageSrc ? {backgroundImage: `url(${resolveSrc}`} : undefined}>
         <div className="z-10 relative flex min-h-screen sm:max-h-screen  items-center justify-center p-8 lg:px-0">
-        <div className="window z-10 sm:max-w-screen-md  sm:px-0">
-        <div
+          <div className="window z-10 sm:max-w-screen-md  sm:px-0">
+            <div
               className="no-scrollbar flex w-full touch-pan-x snap-x snap-mandatory gap-x-6 overflow-x-auto scroll-smooth"
               onScroll={handleScroll}
               ref={scrollContainer}>
