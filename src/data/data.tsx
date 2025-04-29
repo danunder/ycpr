@@ -35,14 +35,14 @@ import Siggis from '../images/portfolio/Siggis.png';
 import TDM from '../images/portfolio/TDM.png';
 import THA from '../images/portfolio/THA.png';
 import profilepic from '../images/profilepic.jpg';
-import timeline from '../images/timeline.png';
+import timeline from '../images/timeline2.png';
 import {
   About,
+  Client,
   ContactSection,
   ContactType,
   Hero,
   HomepageMeta,
-  PortfolioItem,
   Resume,
   SkillGroup,
   Social,
@@ -205,7 +205,7 @@ export const skills: SkillGroup[] = [
 /**
  * Portfolio section
  */
-export const portfolioItems: PortfolioItem[] = [
+export const clients: Client[] = [
   {
     title: 'Pfizer',
     image: pfizer,
@@ -271,9 +271,15 @@ export const experience: TimelineItem[] = [
     content: undefined,
   },
   {
+    date: '2023 - Present',
+    location: 'Good Investing',
+    title: 'Director of Partnerships & Producer',
+    content: undefined,
+  },
+  {
     date: '2022 - 2023',
     location: 'Hut 8 Mining',
-    title: 'Commununications Manager',
+    title: 'Communications Manager',
     content: undefined,
   },
   {
@@ -286,7 +292,7 @@ export const experience: TimelineItem[] = [
     date: '2017 - 2021',
     location: 'Porter Novelli',
     title: 'Public Relations Consultant',
-    content: <p>Health & Wellness, Tech & Corporate Clients</p>,
+    content: undefined,
   },
 ];
 
@@ -295,7 +301,7 @@ export const resumeData: Resume = {
   education: education,
   experience: experience,
   skills: skills,
-  portfolioItems: portfolioItems,
+  clients: clients,
 };
 /**
  * Testimonial section

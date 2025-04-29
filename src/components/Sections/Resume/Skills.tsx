@@ -28,9 +28,9 @@ export const Skill: FC<{skill: SkillType}> = memo(({skill}) => {
 
   return (
     <ul className="flex flex-col">
-      <li className="flex flex-row items-start p-x-2 gap-x-2">
-        {resolveSrc && <Image alt={name} className="mt-[-2px]" height={24} src={resolveSrc} width={24} />}
-        <h4 className="text-base">{name}</h4>
+      <li className="flex flex-row items-start m-1 p-x-2 gap-x-2 sm:gap-x-4">
+        {resolveSrc && <Image alt={name} className="mt-[-2px]" height={30} src={resolveSrc} width={30} />}
+        <h4 className="text-base sm:text-lg">{name}</h4>
       </li>
     </ul>
   );

@@ -1,1 +1,1 @@
-self.__REACT_LOADABLE_MANIFEST='{"index.tsx -> ../components/Sections/StickyFooter":{"id":9412,"files":["static/chunks/139.e2f99b7880292570.js","static/chunks/412.5224a461df7e8a27.js"]}}';
+self.__REACT_LOADABLE_MANIFEST='{"index.tsx -> ../components/Sections/StickyFooter":{"id":9412,"files":["static/chunks/139.e2f99b7880292570.js","static/chunks/412.ab917659df8f5b5c.js"]}}';

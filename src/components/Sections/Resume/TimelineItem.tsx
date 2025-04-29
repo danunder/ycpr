@@ -2,14 +2,14 @@ import {FC, memo} from 'react';
 
 import type {TimelineItem} from '../../../data/dataDef';
 
-const TimelineItem: FC<{item: TimelineItem}> = memo(({item}) => {
+const TimelineItem: FC<{item: TimelineItem; left?: boolean}> = memo(({item}) => {
   const {title, date, location, content} = item;
   return (
-    <div className="flex flex-col pb-8 text-center last:pb-0 md:text-left">
-      <div className="flex flex-col pb-4">
-        <h2 className="text-base sm:text-xl font-bold">{title}</h2>
-        <div className="flex-1 text-sm font-medium italic sm:flex-none">{location}</div>
-        <div className="flex-1 text-sm sm:flex-none">{date}</div>
+    <div className="flex flex-col text-center last:pb-0 md:text-left">
+      <div className="flex flex-col sm:max-w-[250px]">
+        <h2 className="text-base sm:text-xl font-bold sm:text-center">{title}</h2>
+        <div className="flex-1 text-sm sm:text-lg font-medium italic sm:flex-none sm:text-center">{location}</div>
+        <div className="flex-1 text-md sm:text-lg sm:flex-none sm:text-center">{date}</div>
       </div>
       {content && content}
     </div>

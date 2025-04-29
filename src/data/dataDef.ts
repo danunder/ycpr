@@ -78,10 +78,8 @@ export interface SkillGroup {
 /**
  * Portfolio section
  */
-export interface PortfolioItem {
+export interface Client {
   title: string;
-  description?: string;
-  url?: string;
   image: string | StaticImageData;
 }
 
@@ -93,6 +91,7 @@ export interface TimelineItem {
   location: string;
   title: string;
   content?: JSX.Element;
+  left?: boolean;
 }
 
 export interface Resume {
@@ -100,7 +99,7 @@ export interface Resume {
   skills: SkillGroup[];
   education: TimelineItem[];
   experience: TimelineItem[];
-  portfolioItems: PortfolioItem[];
+  clients: Client[];
 }
 
 /**
