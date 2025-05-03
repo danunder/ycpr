@@ -81,6 +81,8 @@ export interface SkillGroup {
 export interface Client {
   title: string;
   image: string | StaticImageData;
+  imageHeight?: number;
+  imageWidth?: number;
 }
 
 /**

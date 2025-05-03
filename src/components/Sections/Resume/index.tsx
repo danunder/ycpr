@@ -19,12 +19,12 @@ const Resume: FC = memo(() => {
     <Section
       className="bg-background p-0 bg-gradient-to-br from-green via-10% via-gradient1 via-30% via-gradient2 via-50% via-gradient3 via-70% via-gradient4 to-90% to-gradient5 md:py-8"
       sectionId={SectionId.Resume}>
-      <div className="relative flex min-h-screen sm:max-h-screen justify-center">
-        <div className="window z-10 overflow-scroll w-[95%] max-w-screen-md h-[700px] align-top sm:px-0">
+      <div className="relative flex min-h-screen sm:max-h-screen items-center justify-center">
+        <div className="window z-10 overflow-scroll w-[95%] max-w-screen-md h-[700px] sm:px-0">
           <div className="title-bar">
             <div className="title-bar-text p-1 lg:p-2 text-base sm:text-2xl">Resume</div>
           </div>
-          <div className="window-body h-[600px]">
+          <div className="p-2">
             {/* Tab Navigation */}
             <menu aria-label="Resume Sections" className="tabs" role="tablist">
               {['Work', 'Skills', 'Clients', 'Education'].map(tab => (
@@ -43,10 +43,7 @@ const Resume: FC = memo(() => {
             {/* Tab Content */}
             <div aria-labelledby={`${activeTab.toLowerCase()}-tab`} className="window h-full" role="tabpanel">
               {activeTab === 'Work' && (
-                <div
-                  aria-labelledby="work-tab"
-                  id="work-panel"
-                  role="tabpanel">
+                <div aria-labelledby="work-tab" id="work-panel" role="tabpanel">
                   <ResumeSection title="Work">
                     <div className="flex flex-row p-6 gap-y-2 justify-center items-stretch">
                       <div className="hidden sm:flex flex-col items-center space-y-20">
@@ -78,35 +75,31 @@ const Resume: FC = memo(() => {
                 </div>
               )}
               {activeTab === 'Skills' && (
-                <div
-                  aria-labelledby="skills-tab"
-                  className="window-body h-[600px] overflow-scroll"
-                  id="skills-panel"
-                  role="tabpanel">
+                <div aria-labelledby="skills-tab" id="skills-panel" role="tabpanel">
                   <ResumeSection title="Skills">
-                    {skills.map((skillgroup, index) => (
-                      <SkillGroup key={`${skillgroup.name}-${index}`} skillGroup={skillgroup} />
-                    ))}
+                    <div className="pl-4">
+                      {skills.map((skillgroup, index) => (
+                        <SkillGroup key={`${skillgroup.name}-${index}`} skillGroup={skillgroup} />
+                      ))}
+                    </div>
                   </ResumeSection>
                 </div>
               )}
               {activeTab === 'Clients' && (
-                <div aria-labelledby="clients-tab" className="window-body h-[600px] overflow-scroll" id="clients-panel" role="tabpanel">
+                <div aria-labelledby="clients-tab" id="clients-panel" role="tabpanel">
                   <ResumeSection title="Clients">
-                    <div className="flex flex-row flex-wrap gap-x-6 gap-y-6 p-6">
-                      {clients.map(({title, image}) => (
-                        <Image alt={title} className="rounded-sm" height={140} src={image} width={140} />
+                    <div className="flex flex-row flex-wrap items-center justify-around gap-x-8 gap-y-8 p-6">
+                      {clients.map(({title, image, imageHeight, imageWidth}) => (
+                        <div className="position-relative max-w-[100px] sm:max-w-[175px]" key={title}>
+                          <Image alt={title} height={imageHeight} src={image} width={imageWidth} />
+                        </div>
                       ))}
                     </div>
                   </ResumeSection>
                 </div>
               )}
               {activeTab === 'Education' && (
-                <div
-                  aria-labelledby="education-tab"
-                  className="window-body overflow-scroll h-full items-stretch"
-                  id="education-panel"
-                  role="tabpanel">
+                <div aria-labelledby="education-tab" id="education-panel" role="tabpanel">
                   <ResumeSection title="Education">
                     <div className="flex flex-col p-6 h-full items-center justify-around">
                       {education.map((item, index) => (

@@ -10,6 +10,7 @@ import {
 
 // import InstagramIcon from '../components/Icon/InstagramIcon';
 import LinkedInIcon from '../components/Icon/LinkedInIcon';
+import PawIcon from '../components/Icon/PawIcon';
 import avatar from '../images/avatar.png';
 // import TwitterIcon from '../components/Icon/TwitterIcon';
 import cloudsImage from '../images/clouds.png';
@@ -36,6 +37,7 @@ import TDM from '../images/portfolio/TDM.png';
 import THA from '../images/portfolio/THA.png';
 import profilepic from '../images/profilepic.png';
 import timeline from '../images/timeline2.png';
+import trcc from '../images/trcc.png';
 import {
   About,
   Client,
@@ -209,34 +211,56 @@ export const clients: Client[] = [
   {
     title: 'Pfizer',
     image: pfizer,
+    imageHeight: 723,
+    imageWidth: 1213,
   },
   {
     title: 'Glaxo Smith Kline',
     image: gsk,
+    imageHeight: 660,
+    imageWidth: 880,
   },
   {
     title: 'Air Miles',
     image: airmiles,
+    imageHeight: 564,
+    imageWidth: 610,
   },
   {
     title: "Siggi's",
     image: Siggis,
+    imageHeight: 145,
+    imageWidth: 410,
+  },
+  {
+    title: 'Toronto Rape Crisis Center',
+    image: trcc,
+    imageHeight: 160,
+    imageWidth: 263,
   },
   {
     title: 'Hut 8 Mining',
     image: hut8,
+    imageHeight: 738,
+    imageWidth: 1681,
   },
   {
     title: 'Taylor Hazell Architects',
     image: THA,
+    imageHeight: 67,
+    imageWidth: 225,
   },
   {
     title: 'Toronto Dog Mums',
     image: TDM,
+    imageHeight: 500,
+    imageWidth: 500,
   },
   {
     title: 'Good Investing',
     image: goodinvesting,
+    imageHeight: 1117,
+    imageWidth: 2500,
   },
 ];
 
@@ -257,7 +281,7 @@ export const education: TimelineItem[] = [
   },
   {
     date: '2013',
-    location: "University of King's college",
+    location: "University of King's College",
     title: 'Bachelor of Arts with Honours',
     content: <p className="text-center font-bold sm:text-base">English Literature & Philosophy</p>,
   },
@@ -362,4 +386,5 @@ export const socialLinks: Social[] = [
   // {label: 'Stack Overflow', Icon: StackOverflowIcon, href: 'https://stackoverflow.com/users/8553186/tim-baker'},
   {label: 'LinkedIn', Icon: LinkedInIcon, href: 'https://www.linkedin.com/in/yaminicoen/'},
   {label: 'Resume', Icon: ArrowDownTrayIcon, href: '/Yamini_Coen_Resume.pdf'},
+  {label: 'Rescue Dog Love', Icon: PawIcon, href: 'https://www.rescuedoglove.com'},
 ];
