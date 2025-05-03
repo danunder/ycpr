@@ -117,18 +117,18 @@ export const aboutData: About = {
   backgroundImageSrc: hillsImage,
   profileImageSrc: profilepic,
   description: (
-    <div className="flex flex-col gap-y-2">
-      <p className="prose-sm text-black-200 sm:prose-lg">
-        I’m Yamini, a communications, public relations and digital marketing expert based out of Toronto, Canada. I have
-        been working in the marketing sphere, with a focus on communications, public relations and digital marketing,
-        for over 7 years. I’ve worked with brands across sectors, including financial services, fintech, consumer,
-        health, wellness and more.
-      </p>
-      <p className="prose-sm text-black-200 sm:prose-lg">
-        I'm passionate about anti-racism, 2SLGBTQIA+ issues, social justice, diversity, equity and inclusion and
-        incorporate that framework in all of my counsel and tactical recommendations.{' '}
-      </p>
-    </div>
+    <p className="prose-sm text-black-200 sm:prose-xl">
+      I’m Yamini, a communications, public relations and digital marketing expert based out of Toronto, Canada. I have
+      been working in the marketing sphere, with a focus on communications, public relations and digital marketing, for
+      over 7 years. I’ve worked with brands across sectors, including financial services, fintech, consumer, health,
+      wellness and more.
+    </p>
+  ),
+  secondParagraph: (
+    <p className="prose-sm text-black-200 sm:prose-xl">
+      I'm passionate about anti-racism, 2SLGBTQIA+ issues, social justice, diversity, equity and inclusion and
+      incorporate that framework in all of my counsel and tactical recommendations.{' '}
+    </p>
   ),
   aboutItems: [
     {label: 'Location', text: 'Toronto, ON', Icon: MapIcon},
@@ -253,13 +253,13 @@ export const education: TimelineItem[] = [
     date: '2013',
     location: 'University of Toronto',
     title: 'Master of Arts',
-    content: <p>Comparative Literature</p>,
+    content: <p className="text-center font-bold sm:text-base">Comparative Literature</p>,
   },
   {
     date: '2013',
     location: "University of King's college",
-    title: 'Bachelor of Arts with Honourss',
-    content: <p>English Literature & Philosophy</p>,
+    title: 'Bachelor of Arts with Honours',
+    content: <p className="text-center font-bold sm:text-base">English Literature & Philosophy</p>,
   },
 ];
 
@@ -309,6 +309,10 @@ export const resumeData: Resume = {
 export const testimonial: TestimonialSection = {
   imageSrc: cloudsImage,
   testimonials: [
+    {
+      name: 'Tim Nash, Good Investing Inc (2023)',
+      text: "Yamini has been an integral part of growing my business, using her knowledge across the board on client communications, organizing long-term partnerships and growing our brand new Classroom platform. They've also begun producing my podcast and YouTube series, helping make content creation efficient while delivering results.",
+    },
     {
       name: 'Christina Antoniou, Pfizer Canada (2020)',
       text: 'As a client, I appreciate her responsiveness, organized approach and the great service level she provides. She is a great communicator, and know the social media landscape very well.',

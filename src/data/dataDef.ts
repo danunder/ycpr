@@ -42,7 +42,7 @@ export interface About {
   backgroundImageSrc?: string | StaticImageData;
   profileImageSrc?: string;
   description: JSX.Element;
-  secondPAragraph?: JSX.Element;
+  secondParagraph?: JSX.Element;
   aboutItems: AboutItem[];
 }
 

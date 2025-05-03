@@ -24,18 +24,17 @@ const Contact: FC = memo(() => {
       <div className="relative flex min-h-screen sm:h-screen items-center justify-center p-8 lg:px-0">
         <div className="window z-10 h-min sm:max-w-screen-md  sm:px-0">
           <div className="title-bar">
-            <div className="title-bar-text p-1 lg:p-2 text-base sm:text-2xl">Welcome</div>
+            <div className="title-bar-text p-1 lg:p-2 text-base sm:text-2xl">Contact</div>
           </div>
           <div className="flex flex-col items-center gap-y-4 sm:gap-y-6 p-4 lg:p-6 text-center">
-            <h1 className="text-4xl font-bold text-black sm:text-8xl">{headerText}</h1>
-            <h2 className="text-base font-bold text-black sm:text-4xl">{description}</h2>
+            <h1 className="text-2xl font-bold text-black sm:text-5xl">{headerText}</h1>
+            <h2 className="text-base font-bold text-black sm:text-2xl">{description}</h2>
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
               <div className="order-2 col-span-1 md:order-1 ">
                 <ContactForm />
               </div>
               <div className="order-1 col-span-1 flex flex-col gap-y-4 md:order-2">
-                <p className="prose leading-6 text-neutral-300">{description}</p>
-                <dl className="flex flex-col space-y-4 text-base text-neutral-500 sm:space-y-2">
+                <dl className="flex flex-col text-base text-neutral-500 space-y-4">
                   {items.map(({type, text, href}) => {
                     const {Icon, srLabel} = ContactValueMap[type];
                     return (
@@ -44,12 +43,12 @@ const Contact: FC = memo(() => {
                         <dd className="flex items-center">
                           <a
                             className={classNames(
-                              '-m-2 flex rounded-md p-2 text-neutral-300 hover:text-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-500',
+                              '-m-2 flex rounded-md p-2 text-black hover:text-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-500',
                               {'hover:text-white': href},
                             )}
                             href={href}
                             target="_blank">
-                            <Icon aria-hidden="true" className="h-4 w-4 flex-shrink-0 text-neutral-100 sm:h-5 sm:w-5" />
+                            <Icon aria-hidden="true" className="h-4 w-4 flex-shrink-0 text-black sm:h-5 sm:w-5" />
                             <span className="ml-3 text-sm sm:text-base">{text}</span>
                           </a>
                         </dd>

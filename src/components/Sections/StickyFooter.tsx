@@ -12,7 +12,7 @@ import contact from '../../images/contact.png';
 import homepage from '../../images/homepage-0.png';
 import Resume from '../../images/Resume.png';
 import START from '../../images/START.png';
-import testimonials from '../../images/testimonials.png';
+// import testimonials from '../../images/testimonials.png';
 import Socials from '../Socials';
 
 export const headerID = 'headerNav';
@@ -25,7 +25,7 @@ const StickyFooter: FC = memo(() => {
       {name: SectionId.About, image: About},
       {name: SectionId.Resume, image: Resume},
       // {name: SectionId.Portfolio, image: Clients},
-      {name: SectionId.Testimonials, image: testimonials},
+      // {name: SectionId.Testimonials, image: testimonials},
       {name: SectionId.Contact, image: contact},
     ],
     [],

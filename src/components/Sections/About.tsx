@@ -5,7 +5,7 @@ import {aboutData, SectionId} from '../../data/data';
 import Section from '../Layout/Section';
 
 const About: FC = memo(() => {
-  const {backgroundImageSrc, profileImageSrc, description} = aboutData;
+  const {backgroundImageSrc, profileImageSrc, description, secondParagraph} = aboutData;
   const resolveSrc = useMemo(() => {
     if (!backgroundImageSrc) return undefined;
     return typeof backgroundImageSrc === 'string' ? backgroundImageSrc : backgroundImageSrc.src;
@@ -20,18 +20,19 @@ const About: FC = memo(() => {
             <div className="title-bar bg-gray-800/60">
               <div className="title-bar-text p-1 lg:p-2 text-base sm:text-2xl">About me</div>
             </div>
-            <div className="flex flex-col md:flex-row p-2 gap-y-2 ">
-              <div className="position-relative max-w-[50vw]">
+            <div className="flex flex-col sm:flex-row items-center">
+              <div className="position-relative">
                 <Image
                   alt="about-me-image"
-                  className="rounded-xl"
+                  className="rounded-xl p-2 sm:p-4"
                   height={2048}
                   src={profileImageSrc || '/default-profile.png'}
                   width={1536}
                 />
               </div>
-              <div className="p-2 gap-y-2">{description}</div>
+              <div className="p-2 sm:p-4">{description}</div>
             </div>
+            <div className="p-2 sm:p-4">{secondParagraph}</div>
           </div>
         </div>
       </div>

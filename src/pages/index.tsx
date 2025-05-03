@@ -9,7 +9,7 @@ import Contact from '../components/Sections/Contact';
 import Hero from '../components/Sections/Hero';
 // import Portfolio from "../components/Sections/Portfolio";
 import Resume from '../components/Sections/Resume';
-import Testimonials from '../components/Sections/Testimonials';
+// import Testimonials from '../components/Sections/Testimonials';
 import {homePageMeta} from '../data/data';
 
 // eslint-disable-next-line react-memo/require-memo
@@ -91,14 +91,14 @@ const Home: FC = memo(() => {
       {/* <section className="h-[calc(100%-3.5rem)]" id="portfolio" ref={(el) => { if (el) sectionsRef.current.push(el); }}>
       <Portfolio />
       </section> */}
-      <section
+      {/* <section
         className="h-[calc(100%-3.5rem)]"
         id="testimonials"
         ref={el => {
           if (el) sectionsRef.current.push(el);
         }}>
         <Testimonials />
-      </section>
+      </section> */}
       <section
         className="h-[calc(100%-3.5rem)]"
         id="contact"

@@ -1,9 +1,9 @@
 import classNames from 'classnames';
-import {FC, memo, UIEventHandler, useCallback, useEffect, useMemo, useRef, useState} from 'react';
+import {FC, memo, useCallback, useEffect, useMemo, useRef, useState} from 'react';
 
 import {isApple, isMobile} from '../../config';
 import {SectionId, testimonial} from '../../data/data';
-import {Testimonial} from '../../data/dataDef';
+import {Testimonial as TestimonialDef} from '../../data/dataDef';
 import useInterval from '../../hooks/useInterval';
 import useWindow from '../../hooks/useWindow';
 import QuoteIcon from '../Icon/QuoteIcon';
@@ -11,7 +11,6 @@ import Section from '../Layout/Section';
 
 const Testimonials: FC = memo(() => {
   const [activeIndex, setActiveIndex] = useState<number>(0);
-  const [scrollValue, setScrollValue] = useState(0);
   const [parallaxEnabled, setParallaxEnabled] = useState(false);
 
   const itemWidth = useRef(0);
@@ -40,7 +39,7 @@ const Testimonials: FC = memo(() => {
       const newIndex = Math.round(scrollContainer.current.scrollLeft / itemWidth.current);
       setActiveIndex(newIndex);
     }
-  }, [itemWidth, scrollValue]);
+  }, [itemWidth]);
 
   const setTestimonial = useCallback(
     (index: number) => () => {
@@ -58,10 +57,6 @@ const Testimonials: FC = memo(() => {
     }
   }, [activeIndex, setTestimonial, testimonials.length]);
 
-  const handleScroll = useCallback<UIEventHandler<HTMLDivElement>>(event => {
-    setScrollValue(event.currentTarget.scrollLeft);
-  }, []);
-
   useInterval(next, 10000);
 
   // If no testimonials, don't render the section
@@ -78,12 +73,9 @@ const Testimonials: FC = memo(() => {
           {'bg-neutral-700': !imageSrc},
         )}
         style={imageSrc ? {backgroundImage: `url(${resolveSrc}`} : undefined}>
-        <div className="z-10 relative flex min-h-screen sm:max-h-screen  items-center justify-center p-8 lg:px-0">
-          <div className="window z-10 sm:max-w-screen-md  sm:px-0">
-            <div
-              className="no-scrollbar flex w-full touch-pan-x snap-x snap-mandatory gap-x-6 overflow-x-auto scroll-smooth"
-              onScroll={handleScroll}
-              ref={scrollContainer}>
+        <div className="z-10 relative flex min-h-screen sm:max-h-screen items-center justify-center">
+          <div className="window z-10 sm:max-w-screen-md sm:p-4">
+            <div className="no-scrollbar flex items-center justify-between touch-pan-x snap-x snap-mandatory gap-x-6 overflow-x-auto scroll-smooth">
               {testimonials.map((testimonial, index) => {
                 const isActive = index === activeIndex;
                 return (
@@ -91,7 +83,7 @@ const Testimonials: FC = memo(() => {
                 );
               })}
             </div>
-            <div className="flex gap-x-4">
+            <div className="flex flex-row justify-around items-center gap-x-4 p-4">
               {[...Array(testimonials.length)].map((_, index) => {
                 const isActive = index === activeIndex;
                 return (
@@ -113,7 +105,7 @@ const Testimonials: FC = memo(() => {
   );
 });
 
-const Testimonial: FC<{testimonial: Testimonial; isActive: boolean}> = memo(
+const Testimonial: FC<{testimonial: TestimonialDef; isActive: boolean}> = memo(
   ({testimonial: {text, name, image}, isActive}) => (
     <div
       className={classNames(
@@ -122,15 +114,15 @@ const Testimonial: FC<{testimonial: Testimonial; isActive: boolean}> = memo(
       )}>
       {image ? (
         <div className="relative h-14 w-14 shrink-0 sm:h-16 sm:w-16">
-          <QuoteIcon className="absolute -left-2 -top-2 h-4 w-4 stroke-black text-white" />
+          <QuoteIcon className="absolute -left-2 -top-2 h-4 w-4 stroke-black" />
           <img className="h-full w-full rounded-full" src={image} />
         </div>
       ) : (
-        <QuoteIcon className="h-5 w-5 shrink-0 text-white sm:h-8 sm:w-8" />
+        <QuoteIcon className="h-5 w-5 shrink-0 text-black sm:h-8 sm:w-8" />
       )}
       <div className="flex flex-col gap-y-4">
-        <p className="prose prose-sm font-medium italic text-white sm:prose-base">{text}</p>
-        <p className="text-xs italic text-white sm:text-sm md:text-base lg:text-lg">-- {name}</p>
+        <p className="prose prose-sm font-medium italic text-black sm:prose-base">{text}</p>
+        <p className="text-xs italic text-black sm:text-sm md:text-base lg:text-lg">-- {name}</p>
       </div>
     </div>
   ),

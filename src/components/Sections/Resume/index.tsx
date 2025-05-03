@@ -20,11 +20,11 @@ const Resume: FC = memo(() => {
       className="bg-background p-0 bg-gradient-to-br from-green via-10% via-gradient1 via-30% via-gradient2 via-50% via-gradient3 via-70% via-gradient4 to-90% to-gradient5 md:py-8"
       sectionId={SectionId.Resume}>
       <div className="relative flex min-h-screen sm:max-h-screen justify-center">
-        <div className="window z-10 overflow-scroll w-[95%] max-w-screen-md h-full align-top sm:px-0">
+        <div className="window z-10 overflow-scroll w-[95%] max-w-screen-md h-[700px] align-top sm:px-0">
           <div className="title-bar">
             <div className="title-bar-text p-1 lg:p-2 text-base sm:text-2xl">Resume</div>
           </div>
-          <div className="window-body h-full">
+          <div className="window-body h-[600px]">
             {/* Tab Navigation */}
             <menu aria-label="Resume Sections" className="tabs" role="tablist">
               {['Work', 'Skills', 'Clients', 'Education'].map(tab => (
@@ -36,20 +36,15 @@ const Resume: FC = memo(() => {
                   key={tab}
                   onClick={() => setActiveTab(tab as 'Work' | 'Skills' | 'Clients' | 'Education')}
                   role="tab">
-                  <h2 className="p-2 px-4 text-lg sm:text-3xl">{tab}</h2>
+                  <h2 className="p-2 sm:px-4 text-lg sm:text-3xl">{tab}</h2>
                 </li>
               ))}
             </menu>
             {/* Tab Content */}
-            <div
-              aria-labelledby={`${activeTab.toLowerCase()}-tab`}
-              className="window h-full"
-              data-scrollable
-              role="tabpanel">
+            <div aria-labelledby={`${activeTab.toLowerCase()}-tab`} className="window h-full" role="tabpanel">
               {activeTab === 'Work' && (
                 <div
                   aria-labelledby="work-tab"
-                  className="window-body h-full overflow-scroll"
                   id="work-panel"
                   role="tabpanel">
                   <ResumeSection title="Work">
@@ -85,7 +80,7 @@ const Resume: FC = memo(() => {
               {activeTab === 'Skills' && (
                 <div
                   aria-labelledby="skills-tab"
-                  className="window-body h-[100%] overflow-scroll"
+                  className="window-body h-[600px] overflow-scroll"
                   id="skills-panel"
                   role="tabpanel">
                   <ResumeSection title="Skills">
@@ -96,7 +91,7 @@ const Resume: FC = memo(() => {
                 </div>
               )}
               {activeTab === 'Clients' && (
-                <div aria-labelledby="clients-tab" className="window-body h-[600px]" id="clients-panel" role="tabpanel">
+                <div aria-labelledby="clients-tab" className="window-body h-[600px] overflow-scroll" id="clients-panel" role="tabpanel">
                   <ResumeSection title="Clients">
                     <div className="flex flex-row flex-wrap gap-x-6 gap-y-6 p-6">
                       {clients.map(({title, image}) => (
@@ -109,13 +104,15 @@ const Resume: FC = memo(() => {
               {activeTab === 'Education' && (
                 <div
                   aria-labelledby="education-tab"
-                  className="window-body overflow-scroll"
+                  className="window-body overflow-scroll h-full items-stretch"
                   id="education-panel"
                   role="tabpanel">
                   <ResumeSection title="Education">
-                    {education.map((item, index) => (
-                      <TimelineItem item={item} key={`${item.title}-${index}`} />
-                    ))}
+                    <div className="flex flex-col p-6 h-full items-center justify-around">
+                      {education.map((item, index) => (
+                        <TimelineItem item={item} key={`${item.title}-${index}`} />
+                      ))}
+                    </div>
                   </ResumeSection>
                 </div>
               )}

@@ -37,20 +37,3 @@ export const Skill: FC<{skill: SkillType}> = memo(({skill}) => {
 });
 
 Skill.displayName = 'Skill';
-
-<ul className="space-y-4">
-  <li>
-    <h3>Yamini Coen Public Relations</h3>
-    <ul>
-      <li>Founder</li>
-      <li>2023 - Present</li>
-    </ul>
-  </li>
-  <li>
-    Hut 8 Mining
-    <ul>
-      <li>Communications Manager</li>
-      <li>2022-2023</li>
-    </ul>
-  </li>
-</ul>;
