@@ -25,7 +25,7 @@ export interface Hero {
   subtitle?: string;
   description: JSX.Element;
   actions: HeroActionItem[];
-  downImageSrc: string | StaticImageData;
+  avatar?: string | StaticImageData;
 }
 
 interface HeroActionItem {

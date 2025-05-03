@@ -20,12 +20,14 @@ const About: FC = memo(() => {
             <div className="title-bar bg-gray-800/60">
               <div className="title-bar-text p-1 lg:p-2 text-base sm:text-2xl">About me</div>
             </div>
-            <div className="flex flex-col sm:flex-row p-2 gap-y-2">
-              <div className="relative m-2 overflow-hidden rounded-xl">
+            <div className="flex flex-col md:flex-row p-2 gap-y-2 ">
+              <div className="position-relative max-w-[50vw]">
                 <Image
                   alt="about-me-image"
-                  className="relative h-64 sm:h-full sm:w-full object-cover"
+                  className="rounded-xl"
+                  height={2048}
                   src={profileImageSrc || '/default-profile.png'}
+                  width={1536}
                 />
               </div>
               <div className="p-2 gap-y-2">{description}</div>

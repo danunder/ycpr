@@ -10,9 +10,9 @@ import {
 
 // import InstagramIcon from '../components/Icon/InstagramIcon';
 import LinkedInIcon from '../components/Icon/LinkedInIcon';
+import avatar from '../images/avatar.png';
 // import TwitterIcon from '../components/Icon/TwitterIcon';
 import cloudsImage from '../images/clouds.png';
-import doubleDown from '../images/doubleDown.webp';
 import hillsImage from '../images/hills.png';
 import camera from '../images/icons/camera.png';
 import crisis from '../images/icons/crisis.png';
@@ -34,7 +34,7 @@ import pfizer from '../images/portfolio/pfizer.png';
 import Siggis from '../images/portfolio/Siggis.png';
 import TDM from '../images/portfolio/TDM.png';
 import THA from '../images/portfolio/THA.png';
-import profilepic from '../images/profilepic.jpg';
+import profilepic from '../images/profilepic.png';
 import timeline from '../images/timeline2.png';
 import {
   About,
@@ -107,7 +107,7 @@ export const heroData: Hero = {
       primary: false,
     },
   ],
-  downImageSrc: doubleDown,
+  avatar: avatar,
 };
 
 /**

@@ -1,12 +1,16 @@
 // import Image from 'next/image';
-import {FC, memo} from 'react';
+import Image from 'next/image';
+import {FC, memo, useMemo} from 'react';
 
 import {heroData, SectionId} from '../../data/data';
 import Section from '../Layout/Section';
 
 const Hero: FC = memo(() => {
-  const {name, subtitle, description, actions} = heroData;
-
+  const {name, subtitle, description, actions, avatar} = heroData;
+  const resolveSrc = useMemo(() => {
+    if (!avatar) return undefined;
+    return typeof avatar === 'string' ? avatar : avatar.src;
+  }, [avatar]);
   return (
     <Section
       className="bg-background px-4 bg-gradient-to-br from-green via-10% via-gradient1 via-30% via-gradient2 via-50% via-gradient3 via-70% via-gradient4 to-90% to-gradient5"
@@ -18,8 +22,23 @@ const Hero: FC = memo(() => {
             <div className="title-bar-text p-1 lg:p-2 text-base sm:text-2xl">Welcome</div>
           </div>
           <div className="flex flex-col items-center gap-y-4 sm:gap-y-6 p-4 lg:p-6 text-center">
-            <h1 className="text-4xl font-bold text-black sm:text-8xl">{name}</h1>
-            <h2 className="text-base font-bold text-black sm:text-4xl">{subtitle}</h2>
+            <div className="flex items-center flex-row">
+              <div className="flex flex-col items-center gap-y-4 sm:gap-y-6 p-4 lg:p-6 text-center">
+                <h1 className="text-5xl font-bold text-black sm:text-8xl">{name}</h1>
+                <h2 className="hidden md:block text-base font-bold text-black sm:text-4xl">{subtitle}</h2>
+              </div>
+              <ul className="tree-view">
+                <Image
+                  alt="avatar"
+                  className=" md:h-full md:w-full"
+                  height={1100}
+                  src={resolveSrc || '/default-profile.png'}
+                  width={1000}
+                />
+              </ul>
+            </div>
+
+            <h2 className="md:hidden text-base font-bold text-black sm:text-4xl">{subtitle}</h2>
 
             {description}
             <div className="flex w-full justify-center gap-x-4">
