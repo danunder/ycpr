@@ -8,7 +8,6 @@ module.exports = {
         win98: '-2px -2px #e0dede, -2px 0 #e0dede, 0 -2px #e0dede, -4px -4px white, -4px 0 white, 0 -4px white, 2px 2px #818181, 0 2px #818181, 2px 0 #818181,  2px -2px #e0dede, -2px 2px #818181, -4px 2px white, -4px 4px black, 4px 4px black, 4px 0 black, 0 4px black, 2px -4px white, 4px -4px black',
         "win98-active": '-2px -2px #818181, -2px 0 #818181, 0 -2px #818181, -4px -4px black, -4px 0 black, 0 -4px black, 2px 2px #e0dede, 0 2px #e0dede, 2px 0 #e0dede,  2px -2px #818181, -2px 2px #e0dede, -4px 2px black, -4px 4px white, 4px 4px white, 4px 0 white, 0 4px white, 2px -4px black, 4px -4px white',
         "win98-clock": '0 2px white, 0 -2px #7d7d7d, -2px -2px #7d7d7d, 2px 2px white, -2px 2px #7d7d7d, 2px -2px white;',
-      
       },
       colors: {
         yellow: '#efc603',
@@ -19,6 +18,11 @@ module.exports = {
         gradient3: "#C8B6FF",
         gradient4: "#E7C6FF",
         gradient5: "#FFD6FF",
+      },
+      backgroundImage: {
+        'book': "url('/src/images/icons/book.png')",
+        'paint': "url('/src/images/icons/paint.png')",
+        'certificate': "url('/src/images/icons/certificate.png')"
       },
       keyframes: {
         typing: {

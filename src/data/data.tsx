@@ -15,7 +15,9 @@ import avatar from '../images/avatar.png';
 // import TwitterIcon from '../components/Icon/TwitterIcon';
 import cloudsImage from '../images/clouds.png';
 import hillsImage from '../images/hills.png';
+import book from '../images/icons/book.png';
 import camera from '../images/icons/camera.png';
+import certificate from '../images/icons/certificate.png';
 import crisis from '../images/icons/crisis.png';
 import defragment from '../images/icons/defragment-0.png';
 import influencer from '../images/icons/influe.png';
@@ -24,6 +26,7 @@ import media2 from '../images/icons/media2.png';
 import minesweeper from '../images/icons/minesweeper.png';
 import network from '../images/icons/network_televisons-3.png';
 import note from '../images/icons/note-2.png';
+import paint from '../images/icons/paint.png';
 import people from '../images/icons/people.png';
 import sound from '../images/icons/sound.png';
 import strategy from '../images/icons/strategy.png';
@@ -37,12 +40,12 @@ import TDM from '../images/portfolio/TDM.png';
 import THA from '../images/portfolio/THA.png';
 import profilepic from '../images/profilepic.png';
 import timeline from '../images/timeline2.png';
-import trcc from '../images/trcc.png';
 import {
   About,
   Client,
   ContactSection,
   ContactType,
+  EducationItem,
   Hero,
   HomepageMeta,
   Resume,
@@ -233,12 +236,6 @@ export const clients: Client[] = [
     imageWidth: 410,
   },
   {
-    title: 'Toronto Rape Crisis Center',
-    image: trcc,
-    imageHeight: 160,
-    imageWidth: 263,
-  },
-  {
     title: 'Hut 8 Mining',
     image: hut8,
     imageHeight: 738,
@@ -267,23 +264,38 @@ export const clients: Client[] = [
 /**
  * Resume section -- TODO: Standardize resume contact format or offer MDX
  */
-export const education: TimelineItem[] = [
+export const education: EducationItem[] = [
   {
     date: '2017',
     location: 'Humber College',
     title: 'Public Relations Diploma',
+    image: {
+      src: certificate,
+      imageHeight: 32,
+      imageWidth: 32,
+    },
   },
   {
     date: '2013',
     location: 'University of Toronto',
     title: 'Master of Arts',
     content: <p className="text-center font-bold sm:text-base">Comparative Literature</p>,
+    image: {
+      src: book,
+      imageHeight: 48,
+      imageWidth: 48,
+    },
   },
   {
     date: '2013',
     location: "University of King's College",
     title: 'Bachelor of Arts with Honours',
     content: <p className="text-center font-bold sm:text-base">English Literature & Philosophy</p>,
+    image: {
+      src: paint,
+      imageHeight: 48,
+      imageWidth: 48,
+    },
   },
 ];
 

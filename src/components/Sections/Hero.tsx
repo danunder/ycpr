@@ -17,15 +17,15 @@ const Hero: FC = memo(() => {
       noPadding
       sectionId={SectionId.Hero}>
       <div className="relative flex min-h-screen sm:max-h-screen items-center justify-center p-8 lg:px-0">
-        <div className="window z-10 h-min sm:max-w-screen-md  sm:px-0">
+        <div className="window z-10 h-min sm:max-h-[90vh] mb-[3rem] sm:max-w-screen-md sm:px-0">
           <div className="title-bar">
             <div className="title-bar-text p-1 lg:p-2 text-base sm:text-2xl">Welcome</div>
           </div>
           <div className="flex flex-col items-center gap-y-4 sm:gap-y-6 p-4 lg:p-6 text-center">
             <div className="flex items-center flex-row">
               <div className="flex flex-col items-center gap-y-4 sm:gap-y-6 p-4 lg:p-6 text-center">
-                <h1 className="text-5xl font-bold text-black sm:text-8xl">{name}</h1>
-                <h2 className="hidden md:block text-base font-bold text-black sm:text-4xl">{subtitle}</h2>
+                <h1 className="text-5xl font-bold text-black sm:text-6xl">{name}</h1>
+                <h2 className="hidden md:block text-base font-bold text-black sm:text-3xl">{subtitle}</h2>
               </div>
               <ul className="tree-view">
                 <Image

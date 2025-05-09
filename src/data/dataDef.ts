@@ -17,6 +17,11 @@ export interface HomepageMeta {
   twitterImageUrl?: string;
 }
 
+export interface ImageData {
+  src: string | StaticImageData;
+  imageHeight?: number;
+  imageWidth?: number;
+}
 /**
  * Hero section
  */
@@ -93,13 +98,21 @@ export interface TimelineItem {
   location: string;
   title: string;
   content?: JSX.Element;
-  left?: boolean;
+  image?: string | StaticImageData;
+}
+
+export interface EducationItem {
+  date: string;
+  location: string;
+  title: string;
+  content?: JSX.Element;
+  image?: ImageData;
 }
 
 export interface Resume {
   timelineImageSrc?: string | StaticImageData;
   skills: SkillGroup[];
-  education: TimelineItem[];
+  education: EducationItem[];
   experience: TimelineItem[];
   clients: Client[];
 }

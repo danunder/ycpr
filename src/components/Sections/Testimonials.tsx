@@ -1,61 +1,32 @@
 import classNames from 'classnames';
-import {FC, memo, useCallback, useEffect, useMemo, useRef, useState} from 'react';
+import {FC, memo, useCallback, useEffect, useMemo, useState} from 'react';
 
-import {isApple, isMobile} from '../../config';
 import {SectionId, testimonial} from '../../data/data';
 import {Testimonial as TestimonialDef} from '../../data/dataDef';
 import useInterval from '../../hooks/useInterval';
-import useWindow from '../../hooks/useWindow';
 import QuoteIcon from '../Icon/QuoteIcon';
 import Section from '../Layout/Section';
 
 const Testimonials: FC = memo(() => {
-  const [activeIndex, setActiveIndex] = useState<number>(0);
-  const [parallaxEnabled, setParallaxEnabled] = useState(false);
-
-  const itemWidth = useRef(0);
-  const scrollContainer = useRef<HTMLDivElement>(null);
-
-  const {width} = useWindow();
-
   const {imageSrc, testimonials} = testimonial;
-
   const resolveSrc = useMemo(() => {
     if (!imageSrc) return undefined;
     return typeof imageSrc === 'string' ? imageSrc : imageSrc.src;
   }, [imageSrc]);
 
-  // Mobile iOS doesn't allow background-fixed elements
+  const [activeIndex, setActiveIndex] = useState<number>(0);
+  const [activeTestimonial, setActiveTestimonial] = useState<TestimonialDef | null>(testimonials[0]);
   useEffect(() => {
-    setParallaxEnabled(!(isMobile && isApple));
-  }, []);
+    setActiveTestimonial(testimonials[activeIndex]);
+  }, [activeIndex, testimonials]);
 
-  useEffect(() => {
-    itemWidth.current = scrollContainer.current ? scrollContainer.current.offsetWidth : 0;
-  }, [width]);
-
-  useEffect(() => {
-    if (scrollContainer.current) {
-      const newIndex = Math.round(scrollContainer.current.scrollLeft / itemWidth.current);
-      setActiveIndex(newIndex);
-    }
-  }, [itemWidth]);
-
-  const setTestimonial = useCallback(
-    (index: number) => () => {
-      if (scrollContainer !== null && scrollContainer.current !== null) {
-        scrollContainer.current.scrollLeft = itemWidth.current * index;
-      }
-    },
-    [],
-  );
   const next = useCallback(() => {
     if (activeIndex + 1 === testimonials.length) {
-      setTestimonial(0)();
+      setActiveIndex(0);
     } else {
-      setTestimonial(activeIndex + 1)();
+      setActiveIndex(activeIndex + 1);
     }
-  }, [activeIndex, setTestimonial, testimonials.length]);
+  }, [activeIndex, testimonials.length]);
 
   useInterval(next, 10000);
 
@@ -65,38 +36,33 @@ const Testimonials: FC = memo(() => {
   }
 
   return (
-    <Section noPadding sectionId={SectionId.Testimonials}>
-      <div
-        className={classNames(
-          'flex w-full items-center justify-center bg-cover bg-center',
-          parallaxEnabled && 'bg-fixed',
-          {'bg-neutral-700': !imageSrc},
-        )}
-        style={imageSrc ? {backgroundImage: `url(${resolveSrc}`} : undefined}>
-        <div className="z-10 relative flex min-h-screen sm:max-h-screen items-center justify-center">
-          <div className="window z-10 sm:max-w-screen-md sm:p-4">
-            <div className="no-scrollbar flex items-center justify-between touch-pan-x snap-x snap-mandatory gap-x-6 overflow-x-auto scroll-smooth">
-              {testimonials.map((testimonial, index) => {
-                const isActive = index === activeIndex;
-                return (
-                  <Testimonial isActive={isActive} key={`${testimonial.name}-${index}`} testimonial={testimonial} />
-                );
-              })}
+    <Section className="bg-clouds" noPadding sectionId={SectionId.Testimonials}>
+      <div className="bg-cover bg-center" style={imageSrc ? {backgroundImage: `url(${resolveSrc})`} : undefined}>
+        <div className="relative flex min-h-screen sm:max-h-screen items-center justify-center p-8 lg:px-0">
+          <div className="window z-10 h-[400px] sm:max-h-[90vh] mb-[3rem] sm:max-w-screen-md  sm:px-0">
+            <div className="title-bar">
+              <div className="title-bar-text p-1 lg:p-2 text-base sm:text-2xl">Testimonials</div>
             </div>
-            <div className="flex flex-row justify-around items-center gap-x-4 p-4">
-              {[...Array(testimonials.length)].map((_, index) => {
-                const isActive = index === activeIndex;
-                return (
-                  <button
-                    className={classNames(
-                      'h-3 w-3 rounded-full bg-gray-300 transition-all duration-500 sm:h-4 sm:w-4',
-                      isActive ? 'scale-100 opacity-100' : 'scale-75 opacity-60',
-                    )}
-                    disabled={isActive}
-                    key={`select-button-${index}`}
-                    onClick={setTestimonial(index)}></button>
-                );
-              })}
+            <div className="flex flex-col h-[90%] justify-between p-4 lg:p-6 text-left">
+              {activeTestimonial && (
+                <Testimonial isActive key={`${activeTestimonial.name}`} testimonial={activeTestimonial} />
+              )}
+
+              <div className="flex flex-row justify-around items-center gap-x-4 p-4">
+                {[...Array(testimonials.length)].map((_, index) => {
+                  const isActive = index === activeIndex;
+                  return (
+                    <button
+                      className={classNames(
+                        'h-3 w-3 rounded-full bg-gray-300 transition-all duration-500 sm:h-4 sm:w-4',
+                        isActive ? 'scale-100 opacity-100' : 'scale-75 opacity-60',
+                      )}
+                      disabled={isActive}
+                      key={`select-button-${index}`}
+                      onClick={() => setActiveIndex(index)}></button>
+                  );
+                })}
+              </div>
             </div>
           </div>
         </div>
@@ -121,8 +87,8 @@ const Testimonial: FC<{testimonial: TestimonialDef; isActive: boolean}> = memo(
         <QuoteIcon className="h-5 w-5 shrink-0 text-black sm:h-8 sm:w-8" />
       )}
       <div className="flex flex-col gap-y-4">
-        <p className="prose prose-sm font-medium italic text-black sm:prose-base">{text}</p>
-        <p className="text-xs italic text-black sm:text-sm md:text-base lg:text-lg">-- {name}</p>
+        <p className="prose prose-sm font-medium italic text-black sm:prose-xl">{text}</p>
+        <p className="text-xs italic text-black sm:text-sm md:text-base lg:text-xl">-- {name}</p>
       </div>
     </div>
   ),

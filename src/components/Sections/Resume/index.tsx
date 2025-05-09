@@ -3,6 +3,7 @@ import React, {FC, memo, useMemo, useState} from 'react';
 
 import {resumeData, SectionId} from '../../../data/data';
 import Section from '../../Layout/Section';
+import EducationItem from './EducationItem';
 import ResumeSection from './ResumeSection';
 import {SkillGroup} from './Skills';
 import TimelineItem from './TimelineItem';
@@ -20,7 +21,7 @@ const Resume: FC = memo(() => {
       className="bg-background p-0 bg-gradient-to-br from-green via-10% via-gradient1 via-30% via-gradient2 via-50% via-gradient3 via-70% via-gradient4 to-90% to-gradient5 md:py-8"
       sectionId={SectionId.Resume}>
       <div className="relative flex min-h-screen sm:max-h-screen items-center justify-center">
-        <div className="window z-10 overflow-scroll w-[95%] max-w-screen-md h-[700px] sm:px-0">
+        <div className="window z-10 overflow-scroll mb-[3rem] w-[95%] max-w-screen-md h-[700px] sm:px-0">
           <div className="title-bar">
             <div className="title-bar-text p-1 lg:p-2 text-base sm:text-2xl">Resume</div>
           </div>
@@ -88,7 +89,7 @@ const Resume: FC = memo(() => {
               {activeTab === 'Clients' && (
                 <div aria-labelledby="clients-tab" id="clients-panel" role="tabpanel">
                   <ResumeSection title="Clients">
-                    <div className="flex flex-row flex-wrap items-center justify-around gap-x-8 gap-y-8 p-6">
+                    <div className="flex flex-row flex-wrap items-center justify-around p-6">
                       {clients.map(({title, image, imageHeight, imageWidth}) => (
                         <div className="position-relative max-w-[100px] sm:max-w-[175px]" key={title}>
                           <Image alt={title} height={imageHeight} src={image} width={imageWidth} />
@@ -101,9 +102,9 @@ const Resume: FC = memo(() => {
               {activeTab === 'Education' && (
                 <div aria-labelledby="education-tab" id="education-panel" role="tabpanel">
                   <ResumeSection title="Education">
-                    <div className="flex flex-col p-6 h-full items-center justify-around">
+                    <div className="flex flex-col py-12 h-full items-center justify-around">
                       {education.map((item, index) => (
-                        <TimelineItem item={item} key={`${item.title}-${index}`} />
+                        <EducationItem item={item} key={`${item.title}-${index}`} />
                       ))}
                     </div>
                   </ResumeSection>
