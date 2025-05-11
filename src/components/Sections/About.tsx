@@ -10,13 +10,14 @@ const About: FC = memo(() => {
     if (!backgroundImageSrc) return undefined;
     return typeof backgroundImageSrc === 'string' ? backgroundImageSrc : backgroundImageSrc.src;
   }, [backgroundImageSrc]);
+  const style = useMemo<React.CSSProperties>(() => ({objectFit: 'contain'}), []);
   return (
     <Section noPadding sectionId={SectionId.About}>
       <div
         className="bg-cover bg-center"
         style={backgroundImageSrc ? {backgroundImage: `url(${resolveSrc}`} : undefined}>
         <div className="relative flex min-h-screen sm:max-h-screen  items-center justify-center p-8 lg:px-0">
-          <div className="window z-10 sm:max-w-screen-md  sm:px-0">
+          <div className="window z-10 sm:max-w-screen-lg  sm:px-0">
             <div className="title-bar bg-gray-800/60">
               <div className="title-bar-text p-1 lg:p-2 text-base sm:text-2xl">About me</div>
             </div>
@@ -24,9 +25,10 @@ const About: FC = memo(() => {
               <div className="position-relative">
                 <Image
                   alt="about-me-image"
-                  className="rounded-xl p-2 sm:p-4"
+                  className="rounded-xl p-2 sm:p-4 max-h-[38vh]"
                   height={2048}
                   src={profileImageSrc || '/default-profile.png'}
+                  style={style}
                   width={1536}
                 />
               </div>

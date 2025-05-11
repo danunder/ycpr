@@ -168,3 +168,15 @@ export interface Social {
   Icon: FC<IconProps>;
   href: string;
 }
+
+export interface PortfolioItem {
+  title: string;
+  clientOrBrand: string;
+  timePeriod: string;
+  description: string;
+  keyDeliverables: string;
+  whatIDid: JSX.Element;
+  images: ImageData[];
+  videoEmbeds: string[];
+  heroImage: ImageData;
+}

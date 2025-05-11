@@ -7,7 +7,7 @@ import {FC, Fragment, memo, useCallback, useMemo, useState} from 'react';
 import {SectionId} from '../../data/data';
 import {useNavObserver} from '../../hooks/useNavObserver';
 import About from '../../images/About.png';
-// import Clients from '../../images/Clients.png'
+import Clients from '../../images/Clients.png';
 import contact from '../../images/contact.png';
 import homepage from '../../images/homepage-0.png';
 import Resume from '../../images/Resume.png';
@@ -24,7 +24,7 @@ const StickyFooter: FC = memo(() => {
       {name: SectionId.Hero, image: homepage},
       {name: SectionId.About, image: About},
       {name: SectionId.Resume, image: Resume},
-      // {name: SectionId.Portfolio, image: Clients},
+      {name: SectionId.Portfolio, image: Clients},
       {name: SectionId.Testimonials, image: testimonials},
       {name: SectionId.Contact, image: contact},
     ],

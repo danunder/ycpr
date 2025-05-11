@@ -30,6 +30,7 @@ import paint from '../images/icons/paint.png';
 import people from '../images/icons/people.png';
 import sound from '../images/icons/sound.png';
 import strategy from '../images/icons/strategy.png';
+import videocamera from '../images/icons/videocamera.png';
 import airmiles from '../images/portfolio/airmiles.png';
 import goodinvesting from '../images/portfolio/goodinvesting.png';
 import gsk from '../images/portfolio/gsk.png';
@@ -48,6 +49,7 @@ import {
   EducationItem,
   Hero,
   HomepageMeta,
+  PortfolioItem,
   Resume,
   SkillGroup,
   Social,
@@ -71,7 +73,7 @@ export const SectionId = {
   Hero: 'Welcome',
   About: 'About',
   Contact: 'Contact',
-  Portfolio: 'Clients',
+  Portfolio: 'Portfolio',
   Resume: 'Resume',
   Skills: 'skills',
   Stats: 'stats',
@@ -88,12 +90,12 @@ export const heroData: Hero = {
   subtitle: 'Communications, Public Relations and Social Media Strategy',
   description: (
     <>
-      <p className="text-black-200 prose sm:prose-lg">
+      <p className="text-black-200 prose sm:prose-lg md:prose-2xl">
         Hello! Welcome to my page. Are you looking for some help with your brand’s marketing and communications
         strategies? Needing some social media advice, or just plainly someone to do it for you? You’re at the right
         place!{' '}
       </p>
-      <p className="text-black-200 prose sm:prose-lg">
+      <p className="text-black-200 prose sm:prose-lg md:prose-2xl">
         Nice to meet you! I’m Yamini, a communications, public relations and digital marketing expert based out of
         Toronto, Canada.{' '}
       </p>
@@ -400,3 +402,42 @@ export const socialLinks: Social[] = [
   {label: 'Resume', Icon: ArrowDownTrayIcon, href: '/Yamini_Coen_Resume.pdf'},
   {label: 'Rescue Dog Love', Icon: PawIcon, href: 'https://www.rescuedoglove.com'},
 ];
+
+export const portfolioItems: PortfolioItem[] = [
+  {
+    title: 'Content Creation: Video',
+    clientOrBrand: 'Epipen',
+    timePeriod: '(2017 - 2021)',
+    description:
+      'Support EpiPen brand by collaborating with non-profit Food Allergy Canada in educating folks about allergy management, including the importance of carrying an EpiPen at all times.',
+    keyDeliverables:
+      'Final produced videos with accompanying social media strategy and posts, including a paid media strategy.',
+    whatIDid: (
+      <ul className="list-disc">
+        <li>Created key messages and initial script with Pfizer Canada & non profit partner Food Allergy Canada</li>
+        <li>Sourced and partnered with videographer partner to storyboard and direct the shoot</li>
+        <li>Project managed whole project between clients and partners</li>
+        <li>Worked with videographer on final edits for post-production</li>
+        <li>Created social media posts to accompany videos</li>
+        <li>Worked with paid media agency on paid media strategy</li>
+      </ul>
+    ),
+    images: [],
+    videoEmbeds: [
+      'https://youtu.be/OEj9GGtnRAE?si=ogZeXiLXZcznLt1B',
+      'https://youtu.be/h6vr1CSGftY?si=rR1GukDL60kcyUqR',
+    ],
+    heroImage: {
+      src: videocamera,
+      imageHeight: 48,
+      imageWidth: 48,
+    },
+  },
+];
+export const portfolioSection = {
+  title: 'Portfolio',
+  footnote: 'For more details on these case studies, send me a note!',
+  clientOrBrandTitle: 'Client or brand',
+  keyDeliverablesTitle: 'Key deliverables',
+  whatIHandledTitle: 'What I handled',
+};
