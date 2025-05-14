@@ -20,6 +20,7 @@ import camera from '../images/icons/camera.png';
 import certificate from '../images/icons/certificate.png';
 import crisis from '../images/icons/crisis.png';
 import defragment from '../images/icons/defragment-0.png';
+import folder from '../images/icons/folder.png';
 import influencer from '../images/icons/influe.png';
 import media from '../images/icons/media.png';
 import media2 from '../images/icons/media2.png';
@@ -41,6 +42,7 @@ import TDM from '../images/portfolio/TDM.png';
 import THA from '../images/portfolio/THA.png';
 import profilepic from '../images/profilepic.png';
 import timeline from '../images/timeline2.png';
+import YCPR from '../images/YCPR.png';
 import {
   About,
   Client,
@@ -50,6 +52,7 @@ import {
   Hero,
   HomepageMeta,
   PortfolioItem,
+  PortfolioSection,
   Resume,
   SkillGroup,
   Social,
@@ -414,18 +417,34 @@ export const portfolioItems: PortfolioItem[] = [
       'Final produced videos with accompanying social media strategy and posts, including a paid media strategy.',
     whatIDid: (
       <ul className="list-disc">
-        <li>Created key messages and initial script with Pfizer Canada & non profit partner Food Allergy Canada</li>
-        <li>Sourced and partnered with videographer partner to storyboard and direct the shoot</li>
-        <li>Project managed whole project between clients and partners</li>
-        <li>Worked with videographer on final edits for post-production</li>
-        <li>Created social media posts to accompany videos</li>
-        <li>Worked with paid media agency on paid media strategy</li>
+        <li className="text-lg mt-[-12px] mb-3">
+          Created key messages and initial script with Pfizer Canada & non profit partner Food Allergy Canada
+        </li>
+        <li className="text-lg mt-[-12px] mb-3">
+          Sourced and partnered with videographer partner to storyboard and direct the shoot
+        </li>
+        <li className="text-lg mt-[-12px] mb-3">Project managed whole project between clients and partners</li>
+        <li className="text-lg mt-[-12px] mb-3">Worked with videographer on final edits for post-production</li>
+        <li className="text-lg mt-[-12px] mb-3">Created social media posts to accompany videos</li>
+        <li className="text-lg mt-[-12px] mb-3">Worked with paid media agency on paid media strategy</li>
       </ul>
     ),
-    images: [],
+    images: [
+      {
+        src: pfizer,
+        imageHeight: 660,
+        imageWidth: 880,
+      },
+    ],
     videoEmbeds: [
-      'https://youtu.be/OEj9GGtnRAE?si=ogZeXiLXZcznLt1B',
-      'https://youtu.be/h6vr1CSGftY?si=rR1GukDL60kcyUqR',
+      <iframe
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowFullScreen
+        height="315"
+        referrerPolicy="strict-origin-when-cross-origin"
+        src="https://www.youtube.com/embed/h6vr1CSGftY?si=RdF6u1YKBZRzp8pi"
+        title="YouTube video player"
+        width="560"></iframe>,
     ],
     heroImage: {
       src: videocamera,
@@ -434,10 +453,21 @@ export const portfolioItems: PortfolioItem[] = [
     },
   },
 ];
-export const portfolioSection = {
+export const portfolioSection: PortfolioSection = {
   title: 'Portfolio',
   footnote: 'For more details on these case studies, send me a note!',
   clientOrBrandTitle: 'Client or brand',
   keyDeliverablesTitle: 'Key deliverables',
-  whatIHandledTitle: 'What I handled',
+  whatIDidTitle: 'What I handled',
+  folderImage: {
+    src: folder,
+    imageHeight: 48,
+    imageWidth: 48,
+  },
+  backgroundImageSrc: hillsImage,
+  windowBackgroundImage: {
+    src: YCPR,
+    imageHeight: 500,
+    imageWidth: 813,
+  },
 };

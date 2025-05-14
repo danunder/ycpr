@@ -177,6 +177,17 @@ export interface PortfolioItem {
   keyDeliverables: string;
   whatIDid: JSX.Element;
   images: ImageData[];
-  videoEmbeds: string[];
+  videoEmbeds: JSX.Element[];
   heroImage: ImageData;
+}
+
+export interface PortfolioSection {
+  title: string;
+  footnote?: string;
+  clientOrBrandTitle?: string;
+  keyDeliverablesTitle?: string;
+  whatIDidTitle?: string;
+  folderImage: ImageData;
+  backgroundImageSrc?: string | StaticImageData;
+  windowBackgroundImage: ImageData;
 }
