@@ -32,7 +32,7 @@ const Hero: FC = memo(() => {
               <ul className="tree-view max-h-[40vh]">
                 <Image
                   alt="avatar"
-                  className="max-h-[38vh]"
+                  className="max-h-[30vh]"
                   height={1100}
                   src={resolveSrc || '/default-profile.png'}
                   style={style}

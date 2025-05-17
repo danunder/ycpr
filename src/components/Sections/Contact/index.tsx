@@ -5,6 +5,7 @@ import {FC, memo} from 'react';
 import {contact, SectionId} from '../../../data/data';
 import {ContactType, ContactValue} from '../../../data/dataDef';
 import LinkedInIcon from '../../Icon/LinkedInIcon';
+import PawIcon from '../../Icon/PawIcon';
 import Section from '../../Layout/Section';
 import ContactForm from './ContactForm';
 
@@ -13,6 +14,7 @@ const ContactValueMap: Record<ContactType, ContactValue> = {
   [ContactType.Phone]: {Icon: DevicePhoneMobileIcon, srLabel: 'Phone'},
   [ContactType.Location]: {Icon: MapPinIcon, srLabel: 'Location'},
   [ContactType.LinkedIn]: {Icon: LinkedInIcon, srLabel: 'LinkedIn'},
+  [ContactType.RescueDogLove]: {Icon: PawIcon, srLabel: 'Rescue Dog Love'},
 };
 const Contact: FC = memo(() => {
   const {headerText, description, items} = contact;
@@ -49,7 +51,7 @@ const Contact: FC = memo(() => {
                             href={href}
                             target="_blank">
                             <Icon aria-hidden="true" className="h-4 w-4 flex-shrink-0 text-black sm:h-5 sm:w-5" />
-                            <span className="ml-3 text-sm sm:text-base">{text}</span>
+                            <span className="ml-3 text-sm sm:text-base text-left max-w-[150px]">{text}</span>
                           </a>
                         </dd>
                       </div>

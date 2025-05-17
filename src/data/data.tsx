@@ -351,19 +351,19 @@ export const testimonial: TestimonialSection = {
   imageSrc: cloudsImage,
   testimonials: [
     {
-      name: 'Tim Nash, Good Investing Inc (2023)',
+      name: 'Tim Nash, Good Investing',
       text: "Yamini has been an integral part of growing my business, using her knowledge across the board on client communications, organizing long-term partnerships and growing our brand new Classroom platform. They've also begun producing my podcast and YouTube series, helping make content creation efficient while delivering results.",
     },
     {
-      name: 'Christina Antoniou, Pfizer Canada (2020)',
+      name: 'Christina Antoniou, Pfizer Canada',
       text: 'As a client, I appreciate her responsiveness, organized approach and the great service level she provides. She is a great communicator, and know the social media landscape very well.',
     },
     {
-      name: 'Eric Tang, Porter Novelli Canada EVP',
+      name: 'Eric Tang, Porter Novelli Canada',
       text: "When you work with Yamini, her positive energy is so powerful that you can't help but want to bring your best game to the table.",
     },
     {
-      name: 'Arnold Lee, Sustainability in Crypto Mining',
+      name: 'Arnold Lee, Hut 8 Mining',
       text: 'Her passion for her work was evident in every project she undertook, consistently going above and beyond to ensure the best outcome. Her communication skills were exceptional, always articulating her ideas clearly and effectively, which greatly contributed to our team’s success.',
     },
   ],
@@ -391,6 +391,11 @@ export const contact: ContactSection = {
       type: ContactType.LinkedIn,
       text: 'yaminicoen',
       href: 'https://www.linkedin.com/in/yaminicoen',
+    },
+    {
+      type: ContactType.RescueDogLove,
+      text: 'Yamini is also a practicing dog professional, find out more here!',
+      href: 'https://www.rescuedoglove.com',
     },
   ],
 };

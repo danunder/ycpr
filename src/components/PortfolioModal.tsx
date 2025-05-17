@@ -44,7 +44,7 @@ const PortfolioModal: FC<PortfolioModalProps> = memo(({item, isOpen, onClose}) =
         document.body.style.paddingRight = originalPaddingRight;
       };
     }
-    return
+    return;
   }, [isOpen]);
 
   if (!isOpen || !item) return null;
@@ -66,8 +66,8 @@ const PortfolioModal: FC<PortfolioModalProps> = memo(({item, isOpen, onClose}) =
           </div>
         </div>
         {/* Make only the window-body scrollable */}
-        <div className="window-body" >
-          <ul className="tree-view overflow-auto gap-4" data-scrollable>
+        <div className="window-body h-[calc(85vh-38px)]">
+          <ul className="tree-view h-[96%] overflow-scroll scrollbar-thin gap-4" data-scrollable>
             <div className="flex flex-col sm:flex-none sm:grid sm:grid-cols-3">
               <div className="field-row-stacked p-2">
                 <p className="mb-2 text-2xl">
@@ -89,7 +89,9 @@ const PortfolioModal: FC<PortfolioModalProps> = memo(({item, isOpen, onClose}) =
                       />
                     </div>
                   ))}
-                  {item.videoEmbeds.map(video => video)}
+                  {item.videoEmbeds.map((video, index) => (
+                    <div key={`video-${index}`}>{video}</div>
+                  ))}
                 </div>
               </div>
             </div>

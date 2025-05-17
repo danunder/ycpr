@@ -53,7 +53,7 @@ const Testimonials: FC = memo(() => {
                   return (
                     <button
                       className={classNames(
-                        'h-3 w-3 rounded-full bg-gray-300 transition-all duration-500 sm:h-4 sm:w-4',
+                        'h-2 w-2 rounded-full bg-gray-300 transition-all duration-500 sm:h-4 sm:w-4',
                         isActive ? 'scale-100 opacity-100' : 'scale-75 opacity-60',
                       )}
                       disabled={isActive}
