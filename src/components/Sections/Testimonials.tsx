@@ -47,18 +47,20 @@ const Testimonials: FC = memo(() => {
                 <Testimonial isActive key={`${activeTestimonial.name}`} testimonial={activeTestimonial} />
               )}
 
-              <div className="flex flex-row justify-around items-center gap-x-4 p-4">
+              <div className="flex flex-row justify-around items-center p-2 sm:p-4">
                 {[...Array(testimonials.length)].map((_, index) => {
                   const isActive = index === activeIndex;
                   return (
                     <button
                       className={classNames(
-                        'h-2 w-2 rounded-full bg-gray-300 transition-all duration-500 sm:h-4 sm:w-4',
-                        isActive ? 'scale-100 opacity-100' : 'scale-75 opacity-60',
+                        'h-1 w-2 rounded-full bg-gray-300 transition-all duration-500 sm:h-2 sm:w-2',
+                        isActive ? 'scale-75 opacity-100' : 'scale-50 opacity-60',
                       )}
                       disabled={isActive}
                       key={`select-button-${index}`}
-                      onClick={() => setActiveIndex(index)}></button>
+                      onClick={() => setActiveIndex(index)}>
+                      *
+                    </button>
                   );
                 })}
               </div>

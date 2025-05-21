@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import {FC, memo, useCallback, useEffect, useMemo, useRef} from 'react';
+import {cloneElement,FC, memo, useCallback, useEffect, useMemo, useRef} from 'react';
 
 import {PortfolioItem} from '../data/dataDef';
 
@@ -67,7 +67,10 @@ const PortfolioModal: FC<PortfolioModalProps> = memo(({item, isOpen, onClose}) =
         </div>
         {/* Make only the window-body scrollable */}
         <div className="window-body h-[calc(85vh-38px)]">
-          <ul className="tree-view h-[96%] overflow-scroll scrollbar-thin gap-4" data-scrollable>
+          <ul
+            className="tree-view h-[96%] overflow-scroll scrollbar-thin gap-4"
+            data-scrollable
+            style={{overflowY: 'scroll'}}>
             <div className="flex flex-col sm:flex-none sm:grid sm:grid-cols-3">
               <div className="field-row-stacked p-2">
                 <p className="mb-2 text-2xl">
@@ -76,7 +79,7 @@ const PortfolioModal: FC<PortfolioModalProps> = memo(({item, isOpen, onClose}) =
                 <p className="mb-4 text-xl">{item.description}</p>
                 {item.whatIDid}
               </div>
-              <div className="col-span-2">
+              <div className="sm:col-span-2">
                 <div className="items-center justify-center flex flex-col gap-4">
                   {item.images.map((image, index) => (
                     <div className="relative max-w-[300px]" key={index}>
@@ -90,7 +93,15 @@ const PortfolioModal: FC<PortfolioModalProps> = memo(({item, isOpen, onClose}) =
                     </div>
                   ))}
                   {item.videoEmbeds.map((video, index) => (
-                    <div key={`video-${index}`}>{video}</div>
+                    <div className="max-w-[300px] sm:max-w-[450px]" key={`video-${index}`}>
+                      <div className="video-responsive relative">
+                        {/* Apply style directly to child iframe/video element */}
+                        {cloneElement(video as React.ReactElement, {
+                          className: 'max-w-full',
+                          style: {objectFit: 'contain'},
+                        })}
+                      </div>
+                    </div>
                   ))}
                 </div>
               </div>
