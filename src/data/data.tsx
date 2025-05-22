@@ -447,6 +447,14 @@ export const portfolioItems: PortfolioItem[] = [
         allowFullScreen
         height="315"
         referrerPolicy="strict-origin-when-cross-origin"
+        src="https://www.youtube.com/embed/OEj9GGtnRAE?si=IaaDiREIIlKxJBgO"
+        title="YouTube video player"
+        width="560"></iframe>,
+      <iframe
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowFullScreen
+        height="315"
+        referrerPolicy="strict-origin-when-cross-origin"
         src="https://www.youtube.com/embed/h6vr1CSGftY?si=RdF6u1YKBZRzp8pi"
         title="YouTube video player"
         width="560"></iframe>,
