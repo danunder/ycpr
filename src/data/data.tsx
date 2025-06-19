@@ -33,8 +33,14 @@ import sound from '../images/icons/sound.png';
 import strategy from '../images/icons/strategy.png';
 import videocamera from '../images/icons/videocamera.png';
 import airmiles from '../images/portfolio/airmiles.png';
+import gi1 from '../images/portfolio/gi1.png';
+import gi2 from '../images/portfolio/gi2.png';
 import goodinvesting from '../images/portfolio/goodinvesting.png';
 import gsk from '../images/portfolio/gsk.png';
+import gsk1 from '../images/portfolio/gsk1.png';
+import gsk2 from '../images/portfolio/gsk2.png';
+import gsk3 from '../images/portfolio/gsk3.png';
+import gsk4 from '../images/portfolio/gsk4.png';
 import hut8 from '../images/portfolio/hut8.png';
 import pfizer from '../images/portfolio/pfizer.png';
 import Siggis from '../images/portfolio/Siggis.png';
@@ -434,6 +440,7 @@ export const portfolioItems: PortfolioItem[] = [
         <li className="text-lg mt-[-12px] mb-3">Worked with paid media agency on paid media strategy</li>
       </ul>
     ),
+    results: '',
     images: [
       {
         src: pfizer,
@@ -461,6 +468,103 @@ export const portfolioItems: PortfolioItem[] = [
     ],
     heroImage: {
       src: videocamera,
+      imageHeight: 48,
+      imageWidth: 48,
+    },
+  },
+  {
+    title: 'Influencer Marketing',
+    clientOrBrand: 'GSK Vaccines',
+    timePeriod: '(2017 - 2021)',
+    description: 'Support GSK’s vaccine brands by collaborating with relevant influencers in target demographic.',
+    keyDeliverables: 'Influencer Instagram posts and stories with paid media boost for further reach',
+    whatIDid: (
+      <ul className="list-disc">
+        <li className="text-lg mt-[-12px] mb-3">Research and influencer selection</li>
+        <li className="text-lg mt-[-12px] mb-3">Key message document and contract negotiations</li>
+        <li className="text-lg mt-[-12px] mb-3">Coordinating content creation and edits</li>
+        <li className="text-lg mt-[-12px] mb-3">Monitoring comments and reporting</li>
+        <li className="text-lg mt-[-12px] mb-3">Adhering to GSK and Health Canada regulations</li>
+      </ul>
+    ),
+    results:
+      'Popular Canadian parenting influencers spoke about the meningitis B vaccine at the height of COVID-19, when negative conversations about vaccines were prominent in parenting circles.',
+    images: [
+      {
+        src: gsk1,
+        imageHeight: 660,
+        imageWidth: 880,
+      },
+      {
+        src: gsk2,
+        imageHeight: 660,
+        imageWidth: 880,
+      },
+      {
+        src: gsk3,
+        imageHeight: 660,
+        imageWidth: 880,
+      },
+      {
+        src: gsk4,
+        imageHeight: 660,
+        imageWidth: 880,
+      },
+    ],
+    videoEmbeds: [],
+    heroImage: {
+      src: media2,
+      imageHeight: 48,
+      imageWidth: 48,
+    },
+  },
+  {
+    title: 'Creating Community',
+    clientOrBrand: 'Good Investing',
+    timePeriod: '(2024-2025)',
+    description: (
+      <>
+        <p>Support Good Investing business growth by creating a Classroom.</p>
+        <br />
+        <p>
+          Good Investing, led by Tim Nash, focuses on providing sustainable investment advice and helping folks align
+          their finances with their values.
+          <a className="font-medium text-blue-700 hover:underline" href="https://www.giclassroom.com/" target="blank">
+            You can join the Good Investing Classroom here!
+          </a>
+        </p>
+      </>
+    ),
+    keyDeliverables:
+      'A community page that encompasses the Good Investing brand while inviting both new and legacy members to engage in learning about sustainable finance.',
+    whatIDid: (
+      <ul className="list-disc">
+        <li className="text-lg mt-[-12px] mb-3">Developing strategy and key messaging</li>
+        <li className="text-lg mt-[-12px] mb-3">
+          Project management top to bottom in coordinating lesson plans, calendar, schedule etc
+        </li>
+        <li className="text-lg mt-[-12px] mb-3">Creation of classroom including graphic design and written text</li>
+        <li className="text-lg mt-[-12px] mb-3">
+          Ongoing promotions and partnerships, including both free video content and gated content
+        </li>
+        <li className="text-lg mt-[-12px] mb-3">Monitoring and responses </li>
+      </ul>
+    ),
+    images: [
+      {
+        src: gi1,
+        imageHeight: 660,
+        imageWidth: 1200,
+      },
+      {
+        src: gi2,
+        imageHeight: 660,
+        imageWidth: 1200,
+      },
+    ],
+    videoEmbeds: [],
+    heroImage: {
+      src: people,
       imageHeight: 48,
       imageWidth: 48,
     },

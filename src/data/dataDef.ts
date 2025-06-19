@@ -174,9 +174,10 @@ export interface PortfolioItem {
   title: string;
   clientOrBrand: string;
   timePeriod: string;
-  description: string;
+  description: string | JSX.Element;
   keyDeliverables: string;
   whatIDid: JSX.Element;
+  results?: string;
   images: ImageData[];
   videoEmbeds: JSX.Element[];
   heroImage: ImageData;

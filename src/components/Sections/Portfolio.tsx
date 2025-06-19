@@ -51,7 +51,7 @@ const Portfolio: FC = memo(() => {
                 style={windowStyle}
               />
               <ul className="flex flex-col h-fit gap-y-4 tree-view">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 overflow-y-auto grid-rows-2" data-scrollable>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 overflow-y-scroll grid-rows-2" data-scrollable>
                   {portfolioItems.map((item, index) => {
                     const {title, heroImage} = item;
                     return (
